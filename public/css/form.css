@@ -1,159 +1,107 @@
-.loader{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    z-index: 5;
-    display: none;
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
 }
 
+*:focus{
+    outline: none;
+}
 
-.form-section{
+body{
+    position: relative;
     width: 100%;
     height: 100vh;
-    position: relative;
+    background: url(..//img/signup-bg.png);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fafafa;
-}
-
-.form-container{
-    width: 60%;
-    min-width: 300px;
-    height: 80vh;
-    background: #fff;
-    overflow: hidden;
-    z-index: 2;
-    display: flex;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
-}
-
-.form-img{
-    width: 40%;
-    height: 100%;
-    object-fit: cover;
+    background-position: center;
 }
 
 .form{
-    width: 60%;
-    padding: 20px 40px;
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
+    width: 400px;
+    height: auto;
+    color: #fff;
+    font-family: 'lato',sans-serif;
 }
 
-.form-heading{
-    font-size: 35px;
-    margin-bottom: 20px;
+.heading{
+    opacity: 0;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 300;
+    margin-bottom: 50px;
 }
 
-input{
-    width: 100%;
-    height: 40px;
-    border: 1px solid #b9b9b9;
-    margin: 5px 0;
-    padding: 10px;
-    line-height: 40px;
-    font-family: 'lato', sans-serif;
-    color: #000;
-    outline: none;
+input,
+.submit-btn{
+    opacity: 0;
+    width: 80%;
+    height: 35%;
+    display: block;
+    margin: 20px auto;
     border-radius: 5px;
-}
-
-::placeholder{
-    color:#b9b9b9;
+    background: rgba(255, 225, 225, 0.3);
+    border: none;
+    color: #fff;
+    padding: 15px;
+    transition: .5s;
     text-transform: capitalize;
 }
 
-input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
+input::placeholder{
+    color: #fff;
 }
 
-input:focus{
-    border: 2px solid #DEB887;
+input:focus
+.submit-btn:hover{
+    background: #fff;
+    color: #000;
 }
 
 input:focus::placeholder{
-    color: #DEB887;
-}
-
-.error{
-    display: block;
-    font-size: .8rem;
-    color: rgb(255, 41, 41);
-    margin: 5px 0;
-    text-transform: capitalize;
-    font-family: 'lato', sans-serif;
-    user-select: none;
-    opacity: 0;
-}
-
-.error.show{
-    opacity: 1;
-}
-
-#tc{
-    -webkit-appearance: none;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    border: 1px solid #b9b9b9;
-    cursor: pointer;
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-#tc:checked {
-    background: #000000;
-}
-
-#tc::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: url(../img/check.png);
-    background-size: contain;
-    display: none;
-}
-
-#tc:checked::before{
-    display: block;
-}
-
-.tc-text{
-    margin-left: 5px;
-    font-size: .8rem;
-    font-family: 'lato',sans-serif;
-}
-
-.tc-text a{
-    color: #000000;
+    color: #000;
 }
 
 .submit-btn{
-    display: block;
-    margin: 20px 0;
-    width: 100px;
-    padding: .8rem 0;
-    border-radius: 0;
-    background: #DEB887;
-    color: #fff;
-    font-family: 'cinzel';
-    border: none;
-    outline: none;
+    width: auto;
+    padding: 15px 40px;
     cursor: pointer;
-    font-size: 1rem;
+    margin: 50px auto 0;
+    opacity: 0;
 }
 
-.other-form-link{
-    font-family: 'lato',sans-serif;
-    color: #000;
-    font-size: .8rem;
+.link{
+    opacity: 0;
+    text-align: center;
+    text-transform: capitalize;
+    color: rgba(255, 225, 225, 0.5);
+    display: block;
+    margin: 30px auto;
+}
+
+.link:hover{
+    color: #fff;
+}
+
+.alert-box{
+    position: absolute;
+    top: -100%;
+    left:50%;
+    transform:translateX(-50%);
+    min-width: 150px;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    text-transform: capitalize;
+    background: rgb(255, 255, 255);
+    border-top: 20px solid rgb(255, 37, 37);
+    border-radius: 20px;
+    color: #000000;
+    font-family:'lato',sans-serif;
+    text-align: center;
+    transition: 1s;
 }
