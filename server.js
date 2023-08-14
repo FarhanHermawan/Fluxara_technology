@@ -1,28 +1,42 @@
-import express from "express";
-import bcrypt from "bcrypt";
+const express = require('express');
+const path =  require ('path');
+const bodyParser = require ('body-parser');
+const knex = require('knex');
 
-// init server
+const db = knex({
+    client:'pg',
+    connection:{
+        client: 'pg',
+        connection: {
+            host: '127.0.0.1',
+            user: 'postgres',
+            password:'root',
+            database:'fluxuralogin'
+        }
+    }
+})
+
 const app = express();
 
-//middlewares
-app.use(express.static("public"));
-app.use(express.json()) // enables from sharing
+let intialPath = path.join (__dirname,"public");
 
-// routes
-// home routes
-app.get('/', (req,res) => {
-    res.sendFile("index.html",{root:"public"})
+app.use(bodyParser.json());
+app.use (express.static(intialPath));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(intialPath,"index.html"));
 })
 
-//404 route
-app.get('/404', (req, res) =>{
-    res.sendFile("404.html", {root:"public"})
-}) 
-
-app.use((req,res) =>{
-    res.redirect('/404')
+//login
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(intialPath,"login.html"));
 })
 
-app.listen (3000, () =>{
-console.log('listening on port 3000');
+//register
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(intialPath,"register.html"));
+})
+
+app.listen(3000, (req, res) => {
+    console.log ('listening on port 3000......')
 })
